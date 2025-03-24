@@ -52,12 +52,17 @@
 	};
 </script>
 
-<div class="container-fluid vh-100">
-	<div class="row h-100">
+<div class="vh-100" style="display: flex; flex-direction: column; overflow: auto">
+	<div style="background: #2c3e50" class="p-3 d-flex justify-content-between align-items-center">
+		<div class="text-white">EditorJS Playground</div>
+		<button class="btn btn-success" on:click={downloadFile}>💾 Save as JSON</button>
+	</div>
+
+	<div class="row grow" style="margin-left: unset; margin-right: unset">
 		<!-- Sidebar (Editor) -->
 		<div class="col-md-6 p-4">
 			<h5>✏️ Editor</h5>
-			<div class="border rounded bg-white text-dark p-3" style="height: 80vh;  overflow-y: auto;">
+			<div class="border rounded bg-white text-dark p-3" style="height: 84vh; overflow-y: auto;">
 				<div bind:this={editorElement} id="editorjs"></div>
 			</div>
 		</div>
@@ -67,10 +72,9 @@
 			<h5>📦 JSON Output</h5>
 			<div
 				class="border rounded bg-white text-dark p-3"
-				style="height: 80vh; overflow-y: auto;"
+				style="height: 84vh; overflow-y: auto;"
 				id="jsonOuput"
 			></div>
-			<button class="btn btn-success mt-3" on:click={downloadFile}>💾 Save as JSON</button>
 		</div>
 	</div>
 </div>
