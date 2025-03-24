@@ -8,6 +8,8 @@
 
 	onMount(() => {
 		aceEditor = ace.edit('jsonOuput');
+		aceEditor.setReadOnly(true);
+		
 		editorJs = new EditorJS({
 			holder: 'editorjs',
 			tools: {
@@ -37,7 +39,6 @@
 			onChange: async () => {
 				const output = await editorJs.save();
 				aceEditor.setValue(JSON.stringify(output, null, 2), -1); // Update Ace Editor
-				aceEditor.setReadOnly(true);
 			}
 		});
 	});
