@@ -167,7 +167,7 @@
 		<!-- Sidebar (Editor) -->
 		<div class="col-md-6 p-4">
 			<h5>✏️ Editor</h5>
-			<div class="border rounded bg-white text-dark p-3" style="height: 84vh; overflow-y: auto;">
+			<div class="border rounded bg-white text-dark p-3" style="height: 84vh; overflow-y: auto; padding-left: 44px !important">
 				<div bind:this={editorElement} id="editorjs"></div>
 			</div>
 		</div>
