@@ -23,7 +23,16 @@
 				marker: { class: Marker, inlineToolbar: true },
 				checklist: { class: Checklist, inlineToolbar: true },
 				link: { class: LinkTool, inlineToolbar: true },
-				image: { class: ImageTool, inlineToolbar: true }
+				image: {
+					class: ImageTool,
+					inlineToolbar: true,
+					config: {
+						endpoints: {
+							byFile: '/uploadFile',
+							byUrl: '/fetchUrl'
+						}
+					}
+				}
 			},
 			onChange: async () => {
 				const output = await editorJs.save();
