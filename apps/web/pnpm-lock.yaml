@@ -8,6 +8,9 @@ dependencies:
   '@editorjs/editorjs':
     specifier: ^2.30.8
     version: 2.30.8
+  editorjs-hyperlink:
+    specifier: ^1.0.6
+    version: 1.0.6
 
 devDependencies:
   '@repo/eslint-config':
@@ -905,6 +908,10 @@ packages:
   /devalue@5.1.1:
     resolution: {integrity: sha512-maua5KUiapvEwiEAe+XnlZ3Rh0GD+qI1J/nb9vrJc3muPXvcF/8gXYTWF76+5DAqHyDUtOIImEuo0YKE9mshVw==}
     dev: true
+
+  /editorjs-hyperlink@1.0.6:
+    resolution: {integrity: sha512-E8UZA9AM3jPwMTE40ul4eGCFzH3+XoUR5YRCy5O1+Yrl5UZQXeJppZ0IHHKaNmHAikDN9dUbKGLabxXZkPRi9w==}
+    dev: false
 
   /es-module-lexer@1.6.0:
     resolution: {integrity: sha512-qqnD1yMU6tk/jnaMosogGySTZP8YtUgAffA9nMN+E/rjxcfRQ6IEk7IiozUjgxKoFHBGjTLnrHB/YC45r/59EQ==}

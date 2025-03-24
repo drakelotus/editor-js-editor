@@ -12,6 +12,7 @@
 
 	onMount(async () => {
 		await loadLibraries();
+		const LinkToolCustom = (await import('editorjs-hyperlink')).default;
 
 		setTimeout(() => {
 			loading = false;
@@ -57,8 +58,12 @@
 				underline: { class: Underline, inlineToolbar: true },
 				marker: { class: Marker, inlineToolbar: true },
 				checklist: { class: Checklist, inlineToolbar: true },
-				link: { class: LinkTool, inlineToolbar: true },
-				image: SimpleImage
+				image: SimpleImage,
+				link: LinkTool,
+				linkTool: {
+					class: LinkToolCustom,
+					inlineToolbar: true
+				}
 			},
 			onChange: async () => {
 				if (isProgrammaticUpdate) return;
@@ -167,7 +172,10 @@
 		<!-- Sidebar (Editor) -->
 		<div class="col-md-6 p-4">
 			<h5>✏️ Editor</h5>
-			<div class="border rounded bg-white text-dark p-3" style="height: 84vh; overflow-y: auto; padding-left: 44px !important">
+			<div
+				class="border rounded bg-white text-dark p-3"
+				style="height: 84vh; overflow-y: auto; padding-left: 44px !important"
+			>
 				<div bind:this={editorElement} id="editorjs"></div>
 			</div>
 		</div>
