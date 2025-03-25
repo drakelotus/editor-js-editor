@@ -11,12 +11,13 @@
 	let loading = true;
 
 	onMount(async () => {
-		await loadLibraries();
+		await loadCDNLibraries();
 		const LinkToolCustom = (await import('editorjs-hyperlink')).default;
+		const InlineImage = (await import('editorjs-inline-image')).default;
 
 		setTimeout(() => {
 			loading = false;
-		}, 1000);
+		}, 100);
 
 		aceEditor = ace.edit('jsonOutput');
 		aceEditor.getSession().on('change', async () => {
@@ -54,11 +55,18 @@
 				quote: { class: Quote, inlineToolbar: true },
 				code: { class: CodeTool, inlineToolbar: true },
 				table: { class: Table, inlineToolbar: true },
-				embed: { class: Embed, inlineToolbar: true },
 				underline: { class: Underline, inlineToolbar: true },
 				marker: { class: Marker, inlineToolbar: true },
 				checklist: { class: Checklist, inlineToolbar: true },
-				image: SimpleImage,
+				image: {
+					class: InlineImage,
+					inlineToolbar: true,
+					config: {
+						embed: {
+							display: true
+						}
+					}
+				},
 				link: LinkTool,
 				linkTool: {
 					class: LinkToolCustom,
@@ -87,7 +95,7 @@
 		});
 	};
 
-	const loadLibraries = async () => {
+	const loadCDNLibraries = async () => {
 		try {
 			await Promise.all([
 				loadScript('https://cdnjs.cloudflare.com/ajax/libs/ace/1.39.1/ace.min.js'),
@@ -200,6 +208,10 @@
 {/if}
 
 <style>
+	:global(#inline-image__modal) {
+		z-index: 999 !important;
+	}
+
 	.loading-screen {
 		position: fixed;
 		top: 0;
